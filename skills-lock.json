@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "30x-growth-marketing-panel": {
+      "source": "norahe0304-art/30x-growth-marketing-panel",
+      "sourceType": "github",
+      "computedHash": "1ac14cd8b30c35a7d922cc78058bb09e3c198bc99b944a073bfebd9df8a114bd"
+    }
+  }
+}
