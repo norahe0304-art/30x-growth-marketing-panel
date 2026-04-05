@@ -1,5 +1,5 @@
-# Julia McCoy Knowledge Base
-> Comprehensive extraction from YouTube video transcripts (First Movers channel)
+# Julia McCoy -- Complete Knowledge Base
+> Comprehensive extraction from YouTube video transcripts (~27K words, First Movers channel). Julia McCoy is the CEO of First Movers, an AI education and implementation company. She uses a digital avatar (Dr. McCoy via HeyGen) for content delivery while personally researching and writing every script. Previously built a content agency to $5M+, sold it, and pivoted entirely to AI-first operations. Runs First Movers Labs (online school) and consulting practice (firstmovers.ai).
 
 ---
 
@@ -321,5 +321,123 @@ Predicted convergence: 2028-2030, creating "something that doesn't have a name y
 - Target audience overlap: entrepreneurs + people of faith
 
 ---
+
+---
+
+## 7) Nvidia GTC 2026 Analysis & Token Economy
+
+### Jensen Huang's AI Timeline (as analyzed by McCoy)
+- **2022-2023**: ChatGPT launched generative AI era (understanding to creating)
+- **2024**: Reasoning models (o1, o3) -- AI learned to think step by step, became trustworthy for real work
+- **2025**: Agentic AI -- Claude Code proved AI can read files, write/test/debug software autonomously
+- Compute demand per task: ~10,000x increase in 2 years
+- Total computing demand: ~1,000,000x increase since 2024
+
+### The Token Factory Framework (Jensen Huang / Nvidia)
+Julia adopted and teaches this framework:
+- Data center = factory that produces tokens (fundamental unit of AI intelligence)
+- Revenue = tokens x price per token
+- Product tiers: free tier (high volume, simple), standard, premium, ultra-premium ($45-$150+ per million tokens)
+- "Think of tokens like electricity in the early 1900s"
+- Track AI compute spend and ROI as a new P&L line item
+- "What you do this year will show up precisely next year as your revenues"
+
+### Vera Rubin Platform Key Specs
+- NVLink 7 (6th gen): 72 GPUs as single computer, 260 TB/s bandwidth
+- 100% liquid cooled (45C hot water), eliminates cooling energy cost
+- Token generation: 2M to 700M tokens (350x increase in 2 years vs. Moore's law 1.5x)
+- Roadmap: Vera Rubin (2026) → Rubin Ultra (2027) → Feynman (2028)
+
+### OpenClaw as Computing Platform Shift
+Jensen compared foundational platform shifts:
+- Linux → made servers accessible to everyone
+- HTML → launched the internet
+- Kubernetes → enabled mobile cloud
+- OpenClaw → enables personal AI agents
+
+### GAS (Agents-as-a-Service) Prediction
+- Every SaaS company will become a GAS company
+- Every software tool will have an agent layer
+- Every engineer will get a "token budget" alongside their salary
+
+---
+
+## 8) Abacus AI Platform (Endorsed/Sponsored)
+
+### Abacus Claw (Cloud OpenClaw)
+- Managed cloud deployment of OpenClaw (no servers, no code, no Mac Minis)
+- Deploy AI agents in under 60 seconds
+- Multi-platform: WhatsApp, Telegram, Slack, Gmail, GitHub, Notion, Google Sheets
+- Persistent memory: agent remembers preferences, projects, conversations
+- Pricing: $7 first month, $10/month after. Pro plan ~$20/month = 25,000 credits (2,000+ hours runtime)
+- 1 credit per 5 minutes of runtime
+
+### Abacus Co-work (Desktop AI Agent) Use Cases
+1. **Expense audit**: Folder of receipts → polished 6-page audit report with anomaly detection
+2. **Incident postmortem**: Incident logs → full postmortem with timeline, 5-whys analysis, remediation plan
+3. **RFP completion**: Documentation + questionnaire → 116 questions answered with source citations
+4. **Supplier analysis**: Price lists + sales data → comprehensive analysis workbook with competitor research and negotiation talking points
+5. **Podcast content pipeline**: 5 transcripts → 15 platform-ready content pieces
+6. **Product roadmap synthesis**: User interviews + surveys + Jira tickets + brainstorm notes → presentation-ready PRD
+- SOC 2 Type 2 and HIPAA compliant
+- Works with local files (privacy advantage over cloud-only solutions)
+
+---
+
+## 9) Science & Technology Thought Leadership Content
+
+### Content Pillar: Science Breakthroughs
+Julia covers bleeding-edge topics before mainstream media as a differentiation strategy:
+
+**Quantum Computing (Majorana Qubits)**:
+- Delft University/Madrid team: first successful readout of Majorana qubit state
+- Coherence times exceeding 1 millisecond (1000x better than conventional qubits)
+- "Quantum capacitance" technique as global probe for reading distributed quantum states
+- Timeline: 2026-2027 refinement → 2027-2028 scaling → 2028-2030 applications
+- AI + quantum convergence predicted 2028-2029
+
+**AlphaFold / Protein Folding**:
+- DeepMind solved 50-year protein folding problem in 2020
+- 92% accuracy vs. previous ~40% (essentially solved the problem)
+- Predicted structure of 200+ million proteins, released for free
+- Drug discovery timeline collapsing from 10-15 years to 2-3 years
+- Pattern: "Intractable problems become tractable. Decades of progress in years."
+
+**Ocean Wave Energy**:
+- Gyroscopic wave energy converter from Osaka University
+- Can tune to all wave frequencies (vs. traditional devices locked to one frequency)
+- 300 kW target = exact auxiliary power demand of commercial shipping vessel
+- AI optimization opportunity: machine learning for real-time gyroscopic parameter tuning
+- "70% of our planet is covered in a power source we've barely begun to tap"
+
+**AI Geopolitics / Model Theft**:
+- Chinese labs (DeepSeek, Alibaba, ByteDance) essentially caught up on some benchmarks
+- Trump admin loosened export controls: Chinese firms ordered 2M+ H200 chips
+- Google DeepMind identified surge in "distillation attacks" (model extraction)
+- OpenAI accused DeepSeek of "free riding" on US capabilities
+- Possible two-tiered AI system: vetted access vs. everyone else 2-3 generations behind
+
+### Content Pattern (Every Video)
+1. **What happened** (the breakthrough/event)
+2. **Why it matters** (implications for business/technology/society)
+3. **What you should do about it** (actionable steps)
+4. CTA: First Movers Labs or consulting
+5. Sign-off: "The future belongs to those brave enough to be first movers. See you down the next rabbit hole."
+
+---
+
+## 10) Signature Quotes & Catchphrases
+
+- "The future belongs to those brave enough to be first movers."
+- "See you down the next rabbit hole."
+- "There is an era before I cloned myself and an era after. The difference isn't subtle. It's total freedom."
+- "If you're 10x more productive than your competition, you don't just get paid 10x more. You capture the entire market."
+- "That clone didn't just save my business. It saved my life."
+- "Everyone wants the sexy AI stuff. The real money is in the boring stuff."
+- "The businesses that win won't just be the ones that adopted AI early. They'll be the ones that understood the convergence."
+- "For the first time in decades, startups can compete with giants."
+- "Build your AI capabilities now -- the tools available today might be the tools you're working with for a long time."
+- "If you're a developer, go install OpenClaw today. This is the new literacy."
+- "Every professional should learn to work with AI agents -- that makes you unfireable."
 
 *Source: Combined transcripts from Julia McCoy's First Movers YouTube channel. All frameworks, strategies, and data points attributed to Julia McCoy / First Movers unless otherwise noted.*

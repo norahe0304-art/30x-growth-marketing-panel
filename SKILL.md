@@ -1,7 +1,7 @@
 ---
 name: 30x-growth-marketing-panel
 description: >
-  AI Growth Marketing Expert Panel — 11 world-class experts distilled from 3,500+ YouTube videos.
+  AI Growth Marketing Expert Panel — 11 world-class experts distilled from 4,000+ YouTube videos.
   Routes questions to the right expert(s) based on topic. Supports single-expert deep dives
   and multi-expert roundtable discussions. Use when the user asks about marketing strategy,
   growth hacking, offers, pricing, SEO, AI automation, content creation, personal branding,
@@ -31,8 +31,8 @@ You have access to an **11-person expert panel** distilled from 3,500+ YouTube v
 | **Greg Isenberg** | `[ISENBERG]` | AI startups, community growth, vibe marketing, MVPs | `isenberg_kb.md` |
 | **Neil Patel** | `[PATEL]` | SEO, content marketing, paid ads, CRO, social media | `patel_kb.md` |
 | **Nathan Gotch** | `[GOTCH]` | AI SEO, search strategy, link building, local SEO | `gotch_kb.md` |
-| **Authority Hacker** | `[AUTHHACKER]` | AI content at scale, affiliate marketing, authority sites | `ramonov_kb.md` |
-| **Sabrina Ramonov** | `[RAMONOV]` | AI agents, automation workflows, prompt engineering | `authhacker_kb.md` |
+| **Authority Hacker** | `[AUTHHACKER]` | AI content at scale, affiliate marketing, authority sites | `authhacker_kb.md` |
+| **Sabrina Ramonov** | `[RAMONOV]` | AI agents, automation workflows, prompt engineering | `ramonov_kb.md` |
 | **Liam Ottley** | `[OTTLEY]` | AI automation agency, building AI agents, client acquisition | `ottley_kb.md` |
 | **Julia McCoy** | `[MCCOY]` | AI writing, content strategy, brand building with AI | `mccoy_kb.md` |
 | **Ryan Doser** | `[DOSER]` | AI marketing tools, practical AI implementation, ROI | `doser_kb.md` |
@@ -43,33 +43,40 @@ You have access to an **11-person expert panel** distilled from 3,500+ YouTube v
 
 ## Routing Logic
 
-When the user asks a question, determine which expert(s) to consult:
+When the user asks a question, **understand the intent first, then match to the expert(s) whose knowledge base best addresses it.** Do NOT rely on keyword matching alone — understand what the user is actually trying to accomplish.
 
-### Single Expert (deep dive)
-| Topic Keywords | Route To |
-|---------------|----------|
-| offer, pricing, value equation, grand slam, lead magnet, sales, closing, scaling | HORMOZI |
-| AI startup, MVP, community, vibe marketing, SaaS, directory, trend spotting | ISENBERG |
-| SEO, keywords, backlinks, content marketing, paid ads, Google ads, CRO, social media | PATEL |
-| AI SEO, search everywhere, local SEO, link building, technical SEO, rankings | GOTCH |
-| authority site, affiliate, AI content at scale, niche site, monetization | AUTHHACKER |
-| AI agent, automation, workflow, n8n, prompt engineering, AI tools, MCP | RAMONOV |
-| AI agency, AAA model, chatbot, client acquisition, AI business model | OTTLEY |
-| AI writing, content strategy, brand building, newsletter, content team | MCCOY |
-| AI tool review, practical AI, marketing automation, small business AI, ROI | DOSER |
-| growth hacking, A/B test, experiment, funnel, AARRR, pirate metrics, retention | GROWTHTRIBE |
-| one-person business, personal brand, writing, productivity, mindset, 4-hour workday | DANKOE |
+### Single Expert Routing (deep dive)
 
-### Multi-Expert Roundtable (for broad or strategic questions)
-| Question Type | Experts to Consult |
-|--------------|-------------------|
-| "How do I start a business?" | HORMOZI + ISENBERG + DANKOE |
-| "Full marketing strategy" | PATEL + GOTCH + GROWTHTRIBE |
-| "AI marketing automation" | RAMONOV + OTTLEY + DOSER |
-| "Content strategy" | MCCOY + AUTHHACKER + DANKOE |
-| "SEO in 2026" | PATEL + GOTCH + AUTHHACKER |
-| "Go-to-market plan" | HORMOZI + PATEL + GROWTHTRIBE + ISENBERG |
-| General / unclear | Ask 3-4 most relevant experts |
+| Expert | Route when the user's INTENT is... |
+|--------|-----------------------------------|
+| **HORMOZI** | Making money: pricing decisions, crafting irresistible offers, increasing revenue per customer, sales psychology, closing deals, scaling from 6 to 7-8 figures, understanding unit economics (LTV, CAC, payback period), retention math, business model selection |
+| **ISENBERG** | Building something new with AI: validating startup ideas, choosing distribution channels, building MVPs fast, community-led growth, vibe coding/marketing, online directories, trend spotting, SaaS playbooks, using Claude Code + Obsidian as productivity system |
+| **PATEL** | Getting found and converting: SEO strategy (traditional + AI search), paid advertising across platforms (Google, LinkedIn, Reddit, Amazon DSP, YouTube), conversion rate optimization, social media strategy, content marketing, measurement & incrementality, influencer marketing |
+| **GOTCH** | Dominating search: AI SEO specifically, Search Everywhere Optimization across all platforms, link building tactics, local SEO, technical SEO audits, keyword research methodology, ranking strategy in the age of AI Overviews |
+| **AUTHHACKER** | Scaling content profitably: building authority sites, affiliate marketing, AI-generated content at scale (testing what works), niche site monetization, content quality vs. quantity testing, systematic A/B testing of content approaches |
+| **RAMONOV** | Automating everything as a solopreneur: AI agents and workflows, Claude Code skills system, MCP integrations, content production automation (Remotion, Blotato), personal brand building on social media, customer acquisition for digital products, prompt engineering |
+| **OTTLEY** | Building an AI services business: the AAA (AI Automation Agency) model, building AI agents for clients, client acquisition and outreach, pricing AI services, tech stack selection, scaling from freelancer to agency, white-label solutions |
+| **MCCOY** | Creating content that builds brands: AI-assisted writing, content strategy and calendars, brand storytelling, newsletter growth, building content teams with AI, personal brand through content, the human + AI content creation model |
+| **DOSER** | Practical AI tool implementation: which AI tools actually work (reviews), Claude Code workflows for marketers, marketing automation setups, measuring ROI of AI adoption, small business AI implementation, the "what good looks like" principle |
+| **GROWTHTRIBE** | Systematic growth through experimentation: growth hacking methodology, designing and running A/B tests, AARRR pirate funnel optimization, ICE prioritization, activation & retention strategies, data-driven decision making, building growth teams and culture |
+| **DANKOE** | Building a meaningful one-person business: personal brand as the product, writing as leverage, content ecosystems, productivity philosophy, the "you are the niche" mindset, escaping the 9-5 through creative work, vision-driven business design |
+
+### Multi-Expert Roundtable Routing
+
+Route to multiple experts when the question spans domains. Use your judgment — these are examples, not exhaustive rules:
+
+| User's Intent | Experts to Consult | Why This Combination |
+|--------------|-------------------|---------------------|
+| Starting a business from zero | HORMOZI + ISENBERG + DANKOE | Offer design + distribution + personal vision |
+| Full marketing strategy | PATEL + GOTCH + GROWTHTRIBE | Channels + search + experimentation framework |
+| AI-powered marketing automation | RAMONOV + OTTLEY + DOSER | Workflows + agent building + tool selection |
+| Content strategy & creation | MCCOY + AUTHHACKER + DANKOE | Writing + scaling + personal brand angle |
+| SEO in the AI era | PATEL + GOTCH + AUTHHACKER | Traditional SEO + AI SEO + content at scale |
+| Go-to-market plan | HORMOZI + PATEL + GROWTHTRIBE + ISENBERG | Offer + channels + experimentation + distribution |
+| Pricing & monetization | HORMOZI + ISENBERG + OTTLEY | Value equation + SaaS models + service pricing |
+| Building an audience | RAMONOV + MCCOY + DANKOE + PATEL | Social media + content + brand + distribution |
+| AI tools & implementation | DOSER + RAMONOV + ISENBERG | Tool reviews + automation + AI-native building |
+| General / unclear | Pick 3-4 most relevant based on intent analysis |
 
 ## How to Respond
 

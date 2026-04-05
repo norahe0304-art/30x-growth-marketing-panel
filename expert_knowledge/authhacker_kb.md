@@ -1,338 +1,404 @@
-# Authority Hacker Combined Transcripts -- Knowledge Base
+# Authority Hacker -- Complete Knowledge Base
 
-> **Source**: `authhacker_combined.txt` -- Combined YouTube video transcripts
-> **Primary Creator**: Sabrina Romanov (AI educator, founder of Blotato)
-> **Guest Contributor**: Ryan Dozer (SEO + Claude Code practitioner)
-> **Note**: Despite the filename, this content is NOT from Authority Hacker (Gael Brewer / Mark Webster). It is Sabrina Romanov's channel content covering AI tools, personal branding, content creation, customer acquisition, and Claude Code workflows.
+> Extracted from combined YouTube video/podcast transcripts (~215K words). Authority Hacker is run by Gael Breton and Mark Webster. They are veteran authority site builders, affiliate marketers, and now AI implementation educators. They run the Authority Hacker AI Accelerator (300+ members), teach vibe coding, AI automation, and content at scale. Previously known for building and ranking authority/niche sites; now focused on AI-first business operations.
 
 ---
 
-## 1) AI Content at Scale
+## 1. Vibe Coding & AI-Built Web Tools
 
-### Core Philosophy
-- AI has shifted content creation from "expensive and slow" to "nearly free and fast" -- the constraint is now taste, not production capacity.
-- The best AI content is NOT generic slop. It is trained on your own voice, your own frameworks, and your own preferences through skills and memory.
-- Repurposing > creating from scratch. One long-form piece (YouTube video) becomes blog posts, short-form videos, carousels, infographics, and social posts.
+### Core Philosophy: "Tools Are the New Content"
 
-### Key Frameworks
+Text content has lost value because LLMs answer questions better and more personally. But tools (domain finders, calculators, interactive apps) still have value because AI chatbots cannot replicate them. Building tools on your website attracts traffic you can monetize the old way, plus earns links naturally.
 
-#### The YouTube-to-Blog SEO Pipeline
-1. Record a YouTube video on a topic.
-2. Copy the YouTube URL into Claude Code.
-3. Invoke a custom SEO blog post writer skill (`/seo-blog-post-writer`).
-4. Claude automatically: transcribes the video, extracts key points, writes an SEO-optimized blog post with keyword in H1 and first sentence, embeds the YouTube video, inserts internal links (from XML sitemap feed), adds external links from the video description, inserts opt-in/lead magnet CTA, creates SEO-optimized permalink, sets featured image from YouTube thumbnail, and publishes as a draft.
-5. Human reviews and publishes.
-- **Key insight**: Previous repurposing tools produced "sloppy" low-quality output that never ranked. The difference is a deeply trained skill file with specific SEO SOPs, brand voice, word count targets, and internal linking rules.
+**"There's still value in going to a website and getting this done. Building this kind of stuff is how you're going to still attract traffic."**
 
-#### The Remotion Video Production Pipeline
-- Install the Remotion skill in Claude Code once.
-- Claude writes, creates, renders, and publishes videos locally on your machine.
-- No subscriptions, no cloud services, no editing software needed.
-- **Five video types demonstrated**:
-  1. Educational explainer videos (animated, with data visualizations)
-  2. Product launch videos (feed in your website URL, auto-pulls screenshots, brand colors, logo)
-  3. Google testimonial showcase videos (for local businesses)
-  4. AI avatar video editing (overlay animated graphics, captions on existing talking-head footage)
-  5. Data visualization time-lapse videos (from CSV data in your niche)
-- **Agentic feedback loop**: Tell Claude to "keep iterating until the video scores 8/10 on virality" -- it screenshots every 5 seconds, self-evaluates, and refines.
-- Cost: Zero per-video cost (it is a skill, not an MCP server; only Claude token usage).
+### Brand Snap Case Study (Vibe Coding Showcase)
 
-#### The Social Media Content Machine (One-Day-Per-Week System)
-1. Write posts using Claude Co-work with brand kit loaded.
-2. Generate infographics, carousels, and images within Claude.
-3. Create faceless short-form videos with Remotion skill.
-4. Schedule everything to multiple platforms (TikTok, Instagram, YouTube, LinkedIn, Facebook) via Blotato MCP server.
-5. Manage entire content calendar from Claude Co-work (reschedule, delete, preview upcoming posts).
-- **"Next free slots"**: Pre-set your posting schedule (e.g., TikTok at 8am, 1pm, 5pm daily), then just tell Claude "schedule in the next free slot."
+- Original: paid a developer $16,270 to build a domain name brainstorming tool (April 2023)
+- Rebuilt with Claude Code in ~1 day (functional), ~1 week total (with security hardening)
+- Features: AI brainstorms 50 domains, checks availability, checks 7 social platforms for handle availability, brand strength scoring
+- Monetized via affiliate links to SiteGround and Namecheap
+- Zero coding knowledge required from Gael
 
-#### Batch Content Production
-- Batch content one week at a time.
-- Generate multiple videos in parallel (Claude Code can work on 5 videos simultaneously).
-- Use the pipeline: generate many variations --> have another AI agent score for quality/virality --> iterate on the best one --> post to social media.
+### The Vibe Coding Process (Step by Step)
 
-### Unique Terminology
-- **Remotion skill**: A Claude Code skill that turns your local machine into a video production studio.
-- **Blotato MCP server**: MCP integration that connects Claude Code to social media scheduling/publishing.
-- **Storyboard review**: Claude presents its video plan before rendering; you iterate on the storyboard before committing to render time.
-- **Viral scorecard**: An AI evaluation framework that scores video quality on a 1-10 scale before publishing.
+1. **PRD (Product Requirements Document)** -- THE most critical step. Use Gemini/ChatGPT/Claude canvas to act as a project manager. Describe what you want conceptually. "If you don't plan it, AI is going to build it wrong most of the time."
+2. **API Research** -- Use Perplexity (better for current/technical info) in a separate chat to keep context clean
+3. **Code Editor Setup** -- Use Cursor (free plan) as the IDE. Install Claude Code in the terminal
+4. **Build iteratively** -- Talk to Claude Code similarly to how you'd talk to a human developer. It builds, you review, you iterate
+5. **Security hardening** -- The hardest part. Bots will spam public-facing tools. Rate limiting, API protection, bot prevention
+6. **Deployment** -- Host on Cloudflare (free up to 60-100K visits/month) or Vercel
 
----
+### Key Vibe Coding Insights
 
-## 2) Customer Acquisition & Monetization
+- "Building the functionality is very quick -- literally one day. Security is what takes time."
+- "The experience didn't feel that different from working with a human developer. The only difference is it was faster."
+- "You do rebuild things 2-3 times from planning mistakes. Spend MORE time on the PRD."
+- Internal tools behind login are much easier (no bot/security issues)
+- Use Astro framework for SEO-friendly sites (raw HTML for Google)
+- WordPress is a mistake in 2026: "You cannot vibe code on WordPress. It just doesn't work because it works through a database system."
 
-### The "First 5 Customers" Framework
-A comprehensive list of 21+ methods to acquire your first customers, split into free and paid:
+### Astro + Cloudflare: The New Website Stack
 
-#### Free Methods (15 strategies)
-1. **Warm network outreach** -- DM friends, colleagues, acquaintances. Be transparent you are early stage. Most people skip this.
-2. **DM outreach on social media** -- Create social content with a lead magnet (e.g., "comment X to get my playbook"). Use DM automation tools (ManyChat on Instagram) to auto-reply. Even 30 interested people is enough to start.
-3. **Post in Facebook Groups, School communities, WhatsApp groups** -- Give value first (share automations, answer questions), sell second. Become an authentic member before promoting.
-4. **Post short-form video content on social media** -- The primary growth engine. Copy viral hooks. Focus on one niche.
-5. **Make long-form YouTube videos** -- Tutorials where your product is naturally embedded. Title = the outcome people want, NOT your product name.
-6. **Cold email** -- Use AI + automation to scrape targets (e.g., Google Business reviews in local zip codes). 80% automation, 20% human touch. Make it easy to reply.
-7. **Submit to directories** -- Product Hunt (launch regularly, 2x/year with major updates), "There's an AI for That," startup directory submission tools.
-8. **Revenue share with affiliate partners** -- Harder at zero credibility. Offer large revenue share + insane customer support. Gets easier after 10 customers with real testimonials.
-9. **Product forums** -- Every major product (Zapier, Airtable, N8N, etc.) has forums. Post templates, answer questions, demonstrate how you solve pain points.
-10. **Rank in AI SEO** -- Show up in ChatGPT/Gemini answers. Create blog posts with "[Competitor] alternative" keyword variations. Bottom-of-funnel buyers who are already searching.
-11. **Build free public lead magnets** -- Notion spreadsheets, Airtable directories, vibe-coded tools, playbooks. Embed your product naturally.
-12. **Host webinars/masterclasses for influencer audiences** -- Offer free education to someone else's community. Never hard-sell; just teach and embed your product in demos.
-13. **Reverse job board (Upwork)** -- Search for relevant jobs, craft personalized proposals: "I can solve this at a fraction of the cost." Learn about target customer needs through conversations.
-14. **Create a free Custom GPT** -- Millions use ChatGPT's GPT store. Build a useful tool (e.g., viral hooks database), load your lead magnet into it.
-15. **Build local relationships** -- Chamber of commerce, local businesses, workshops. Works especially well for consulting/education/training offers.
+- Authority Hacker rebuilt their own site on Astro (authorityhacker.com)
+- Cloudflare hosting: free, serverless (only runs when someone visits), faster than premium WordPress hosting
+- Zero hosting cost up to ~100K visits/month
+- Changes can be made from phone via Claude Code app (creates GitHub branch, preview on staging, merge to deploy)
+- "I could be in a meeting with a client and type on my phone. By the end of the meeting, I could show them the change they asked for."
+- SEO-friendly: Astro outputs raw HTML that Google can crawl perfectly
 
-#### Paid Methods (6 strategies)
-1. **Apollo for paid leads + cold email** -- Buy targeted lead lists, email with 80% automation / 20% human personalization.
-2. **Facebook ads funnel to landing page** -- VSSL (Video Sales Letter) or booking page. Expect $500+ minimum to get enough data. Control targeting.
-3. **Vibe-code small apps/tools** -- Free tools that drive traffic (e.g., LinkedIn headline generator, profile optimizer). Users discover your main product naturally.
-4. **Micro press coverage** -- HARO (Help A Reporter Out), AB Newswire. Build backlinks and press mentions.
-5. **Social listening tools** -- Tools like OG Tool to monitor conversations on Reddit/social media. Surface relevant threads, engage naturally (never fully automate this).
-6. **Sponsor niche newsletters / micro-influencers** -- Platforms curate influencer directories. Target micro-influencers (<50K followers) who deeply understand your audience's pain. DM directly; don't start with big influencers.
+### Cloudflare's "Citable" CMS (Version 0.1)
 
-### Key Principles for Customer Acquisition
-- Start with FREE methods before spending money on paid.
-- You only need 5-10 customers to validate. Don't overthink scale.
-- After 10 customers, create testimonials from each one, then use those to pitch affiliate partners.
-- Methods are NOT mutually exclusive. Try 5 different paths simultaneously.
-- **"100% of stuff I've tried has not worked the first time."** -- Expect failure. Iterate. It is okay to lose money on a channel and move on.
-
-### Personal Brand Monetization Paths (15+ revenue streams)
-1. Courses / information products
-2. Templates
-3. One-to-one coaching
-4. Consulting
-5. Advisory work / fractional roles
-6. SaaS product
-7. Mobile app
-8. Paid community (e.g., School)
-9. Free community --> paid community funnel
-10. Physical products / merch
-11. Referral fees / affiliate commissions
-12. Sponsorships and brand deals
-13. Digital products (e.g., Claude Code Skill Stack)
-14. Workshops / masterclasses
-15. Creator fund / platform payouts
-
-### Monetization Philosophy
-- **"Don't worry about monetization before 50,000 followers."** -- Volume first, monetization later.
-- Each monetization path can independently scale to $1M+/year.
-- Diversify: don't rely 100% on sponsorships. Mix (e.g., 30% sponsorships + 70% paid community).
-- The personal brand IS the asset. Content is the distribution. Monetization is just picking which lever to pull.
+- New WordPress alternative built on Astro by Cloudflare
+- Looks like WordPress interface (familiar for existing users)
+- Serverless architecture = no always-on server costs
+- Built-in SEO features (no plugins needed), redirect management
+- WordPress content importer
+- Built-in protocol for LLMs to pay for content usage (future-proofing)
+- Plugin security model: plugins run in isolated workers, can't poison your database
+- "If Cloudflare continues investing, this is going to be a banger."
 
 ---
 
-## 3) Personal Brand Building
+## 2. Social Media with AI
 
-### The Brand Identity Framework
-**Two questions to answer before creating content:**
+### Core Principle: Emotion Over Information
 
-1. **"What words or feelings do you want people to think of when they hear your name?"**
-   - Example: Sabrina = "free AI education"
-   - Don't overthink. Start somewhere. It took 6 months to figure out.
-   - Also consider: what bad labels do you want to AVOID?
+**"If you tell the model to think about what this means emotionally for people, it will craft better posts."**
 
-2. **"Why should you stick to one topic for your first 90 days?"**
-   - Social media algorithms are AI. They need context.
-   - Posting random topics = confusing the algorithm (like giving ChatGPT contradictory instructions).
-   - One topic for 90 days teaches the algorithm: (a) what you create, and (b) who wants to watch it.
-   - You will NOT run out of ideas -- audience comments generate infinite spin-off content.
+- Information is irrelevant -- people can ask a chatbot for better answers
+- Social media rewards emotional response, not teaching
+- Write for a small group who feel strongly, not for everyone
+- Engagement triggers distribution; distribution reaches more people
+- "Punchy, high impact copy" -- AI tends to default to teaching, which doesn't work
 
-### Two Approaches to Starting
-1. **Achievement-first**: Lock in, learn/build something, then share from experience. ("I watched Claude Code tutorials, built a project, and here is what I learned.")
-2. **Document-as-you-go**: Share your journey in real time. ("Day 1 of my journey to learn X.")
-- Both work. Pick whichever matches your situation.
+### The Social Media Duality Formula
 
-### The 30-Day Volume Sprint
-- **Make 100 videos in 30 days.**
-- Purpose: NOT to go viral. Purpose is to:
-  1. Learn how to create content faster than you give up.
-  2. Train the algorithm on your niche.
-  3. Get your first "mini viral hit" as fast as possible (virality is addictive and keeps you going).
-  4. Pay attention to your internal doubts -- notice around day 20 you will want to quit. Push through.
-- "Your first 100 videos is your first year in college taking useless courses."
-- All will flop? Fine. 1,000 random people watching 2 seconds of your video. Who cares?
-- **The two things that kill creators**: (1) the inner voice that convinces you to give up, and (2) the time it takes to achieve a mini viral hit.
+Create posts with two sides that people can argue about:
+- "This is OpenClaw for grown-ups" (140 likes, 22 comments, 24K impressions)
+- Triggers emotional reactions and comment debates
+- Even negative engagement (people calling you out) helps distribution
 
-### The Viral Hook Copy System
-- **The most important skill**: Copying hooks from already-viral content. Do NOT try to be clever.
-- Process:
-  1. Open TikTok/Instagram. Search your topic.
-  2. The algorithm shows you what is already viral in your niche (it is incentivized to).
-  3. Find 3 viral videos you can reasonably make.
-  4. **Copy the first 10 seconds EXACTLY**: same title, same font, same color, same positioning, same spoken hook.
-  5. After 10 seconds, diverge with YOUR take, YOUR approach, YOUR experience.
-- "Don't change the colors. Don't change the font. Don't shrink it. COPY it."
-- Resource: vidtao.com curates viral TikTok videos for product/app marketing inspiration.
+### Gael's Social Media Workflow
 
-### Engagement Strategy
-- Engage on your PRIMARY platform only (e.g., Instagram). After posting, engage for the first hour.
-- DM automation (ManyChat) is helpful but NOT required for virality.
-- Engagement gives a "little bump" to good videos but will not 100x results.
-- The real growth driver is content quality + hook quality + volume.
+1. Open Claude Code, invoke `/social-manager` skill
+2. Give context (podcast transcript, new feature, personal experience)
+3. Skill has library of hooks, knows post length, formatting rules
+4. Connected to Typefully for direct scheduling and preview
+5. Human review and iteration before publishing
+6. Mix AI-generated posts with authentic "shit-posting" hot takes for authenticity
 
-### Content Repurposing Hierarchy
-1. YouTube long-form (anchor content)
-2. Short-form clips for TikTok, Instagram Reels, YouTube Shorts
-3. Carousel / infographic for LinkedIn, Instagram
-4. Blog posts (via SEO pipeline)
-5. Community posts (School, Facebook Groups)
-6. Templates shared in product forums
-7. Lead magnets (Notion docs, spreadsheets, GPTs)
+### Weekly Self-Improvement Loop
+
+- Claude Code skill scrapes all social posts weekly
+- Analyzes likes, engagement, saves, reposts
+- Updates documentation on what works/doesn't work
+- Learns from platform changes over time
+- "Things that used to work and don't work anymore, it learns from that"
+
+### Key Social Media Metrics
+
+- Gael's successful post example: 1K likes, 122K views, 2.6K saves, 200 comments
+- Hook formula: "Old way: [expensive/slow method]. New way: [AI method]"
+- First frame of video shows the impressive output
+- "Every first touchpoint is here to buy more of your time"
+
+### What Doesn't Work
+
+- Fully automated AI social media (no human oversight) -- "goes down the toilet"
+- Generic teaching posts without emotional angle
+- AI-only accounts with no authentic personality mixed in
+- "If you have nothing to say and nothing to add, you're extremely unlikely to succeed by letting AI run your social media"
 
 ---
 
-## 4) AI Productivity & Workflow (The 10 AI Skills)
+## 3. AI Content at Scale
 
-### Skill 1: Prompt Engineering
-- You do NOT need expensive courses. Use the free resources (Elements of AI, OpenAI Academy, YouTube tutorials).
-- The key technique: **Ask AI clarifying questions**. Append "Ask me clarifying questions" to any prompt.
-- The prompt engineering template layers on top of everything else.
+### Multi-Agent Article Writing System
 
-### Skill 2: Sparring
-- Use AI as a sparring partner, NOT a glazing partner.
-- Push back on AI's suggestions. Challenge its reasoning.
-- "Don't take everything they say at face value. Get used to sparring back and forth."
-- This is where the real "light bulb moments" come from.
+Architecture for high-quality articles at scale:
 
-### Skill 3: 24/7 Tutor
-- Most underutilized capability. Ask AI to teach you anything.
-- Drop screenshots of where you are stuck. Be honest: "I'm following this tutorial, I got to this step, but now I see this error."
-- "There isn't one person who's going to have the perfect blueprint. But AI can fill the gaps."
+1. **Research Agent** -- Deep research using multiple sources (Reddit, X, YouTube transcripts with engagement data). NOT just top Google results
+2. **Planning Agent** -- Creates detailed outline based on research
+3. **Writing Agent** -- Writes one section at a time (full compute per section). Aware of everything written so far (no repetition)
+4. **Metadata Agent** -- Writes title tags, meta descriptions, social descriptions
+5. Operates on Google Sheets (queue keywords) + Google Docs (output)
 
-### Skill 4: Skills (Claude Skills / Custom GPTs)
-- Think of skills as "a custom GPT designed to do one task really, really well."
-- Break work into distinct tasks: brand review, content drafting, SEO audit, email sequences.
-- Invoke with `/skill-name` or let Claude auto-detect which skill to use.
-- **Self-reflection prompt for skill creation**: "Based on our conversation, create three skills. Ask me clarifying questions." Claude analyzes conversation for repeatable tasks with lots of context/preferences.
-- Iterate and improve skills over time. Have regular "back and forth" conversations, then update the skill.
+**Key insight:** "The quality of information is surprisingly good because it reads Reddit discussions, YouTube videos with high engagement -- not shitty AI articles ranking on Google."
 
-### Skill 5: Memory (Claude MD / Projects)
-- Memory = a folder of everything about your business so you never repeat yourself.
-- ChatGPT: use Projects. Claude: use Projects or Claude MD file.
-- **Claude MD**: A plain text file Claude reads at the start of every session. Contains coding standards, brand voice, architecture decisions, product details, constraints.
-- **The `/learn` skill**: At end of conversation, tell Claude "reflect on this conversation and extract anything important to update in Claude MD or create as a new skill."
-- Continuously update memory. Most people set it once and forget it.
+### N8N vs Claude Code for Content
 
-### Skill 6: Repetition
-- Google research confirmed: repeating instructions to AI improves output quality.
-- Don't be afraid to repeat important constraints, preferences, and context.
+- **N8N version**: cheaper for high volume (1000+ articles), uses different models per task (Gemini Flash for metadata, Opus for writing)
+- **Claude Code version**: more interactive, better for 10-20 articles, can iterate during generation
+- Can provide example articles for voice/style mimicking
+- Cost optimization: sub-agents on cheaper models (Haiku) for simple tasks
 
-### Skill 7: Planning (Plan Mode)
-- **Spend 90% of time in "plan mode"** -- going back and forth on approach before executing.
-- Use prompt engineering + sparring techniques while planning.
-- Only switch to "edits automatically" mode when you are truly happy with the plan.
-- "Sometimes AI just doesn't follow the plan" -- but planning drastically reduces wasted iterations.
+### Content Quality Benchmarks
 
-### Skill 8: MCP (Model Context Protocol)
-- MCP = giving Claude access to external tools and services (Blotato for social media, file systems, APIs).
-- Think of it as: Claude can now "do things" in the real world, not just chat.
-- Unlocks automation: post to social media, manage calendars, access databases.
-
-### Skill 9: Stacking (Skills + MCP)
-- Combining skills (the playbook/knowledge) with MCP (the tools/actions).
-- "Your mini employee that knows the playbook AND has the tools to carry out the tasks."
-- Example: SEO blog post skill (knowledge) + WordPress MCP (publishing action) + Blotato MCP (social distribution).
-
-### Skill 10: Mobile Apps
-- Highly underrated. Use Claude/ChatGPT mobile apps for voice-based workflows, on-the-go brainstorming, quick tasks.
+- Formatting is "decent" out of the box
+- Technical advice quality matches conference-level expertise
+- "90% publish ready from the get-go" (with proper brief)
+- Still needs human review for images (AI-generated images are "helpful placeholders")
 
 ---
 
-## 5) SEO in the AI Era
+## 4. AI Agents & Automation
 
-### AI SEO (Showing Up in AI Answers)
-- **Definition**: Ranking in ChatGPT's answers, Gemini's answers, Perplexity, etc. -- not just Google.
-- Onboarding survey data shows: a surprising number of users discover products through AI chat answers.
-- Strategy: Create blog posts targeting "[Competitor] alternative" keywords. These are bottom-of-funnel buyers already looking for alternatives.
-- **10 different competitor comparison posts** with keyword variations = high-intent organic traffic.
+### N8N Integration with Claude Code
 
-### The Claude Code SEO Blog Post System (Ryan Dozer)
-- Custom Claude Code skill trained on personal writing style, SEO best practices, word count targets.
-- Automatic features:
-  - Keyword optimization in H1, first sentence, first H2, permalink
-  - YouTube video embed
-  - Lead magnet/opt-in insertion in every post
-  - External links from video description
-  - Internal links from XML sitemap
-  - SEO meta description
-  - Target keyword assignment
-  - Author assignment
-  - Featured image from YouTube thumbnail
-- Published as WordPress draft for human review.
-- **Key insight from Ryan Dozer**: "My site has zero backlink profile, but this SEO content is starting to generate organic traffic purely from on-page optimization and AI-era SEO signals."
+- N8N MCP skill allows Claude Code to build and manage N8N workflows
+- Claude Code designs the automation, N8N executes at scale
+- "Run, see error, tell Claude to look at last execution, it fixes it. Repeat a few times."
+- Medium complexity workflows work well; very complex still takes hours
 
-### SEO Philosophy
-- Traditional SEO (backlinks, domain authority) still matters but is being supplemented by AI SEO.
-- The new game: show up in AI chat answers AND in traditional search.
-- Press mentions (HARO, AB Newswire) help build domain authority signals.
-- Startup directories (Product Hunt, etc.) provide backlinks and credibility.
+### GumLoop Deep Research Automation
 
----
+- Workflow automation platform (featured in podcast with CEO)
+- MCP nodes: vibe-code API integrations in natural language
+- Write once, runs consistently (unlike agent-based approaches where AI retries differently each time)
+- Loop mode: process lists automatically (100 leads = 100 deep research reports in parallel)
+- Subflows: modular reusable components across organization
+- Example: Calendar meeting prep automation (get attendees, research them, write briefing report)
 
-## 6) The OpenAI / AI Industry Analysis
+### Scheduled Tasks in Claude Code
 
-### Key Findings (as of early 2026)
-- OpenAI revenue tripled to $13B in 2025, but spending hit $22B (loses $169 for every $1 earned).
-- Inference costs (not training) are the existential threat: quadrupled in one year.
-- 95% of ChatGPT's 900M users are free -- they burn compute but pay nothing.
-- OpenAI broke three founding promises: nonprofit mission, no ads, no weapons.
-- Ads in ChatGPT launched January 2026 ($200K minimum advertiser commitment, projecting $1B ad revenue Year 1).
-- Pentagon deal signed February 2026 after Anthropic was blacklisted for refusing "all lawful purposes" language.
-- $110B funding round (Amazon $50B, SoftBank $30B, Nvidia $30B) -- largest private funding round in history.
-- Nvidia investment is circular: $30B to OpenAI, most of which flows back to Nvidia as GPU purchases.
+- Built-in scheduling (daily, weekly, custom frequency)
+- Computer must be on (client-side cron job)
+- Use case: "Every night, read all my call transcripts on Google Drive and prepare social post ideas on Notion"
+- Can call skills and connect to N8N for hybrid workflows
+- "Nobody's talking about it now. In two months everyone's going to go crazy."
 
-### Three Lessons for AI Users
-1. **Build model-agnostic workflows.** Every AI API is priced below cost right now. When subsidies end, you need to switch easily.
-2. **Watch what companies DO under financial pressure, not what they SAY when things are easy.** OpenAI's mission changed when money ran out. Every AI company will face this.
-3. **The debt chain is real.** Oracle, Microsoft, NVIDIA stock prices are a real-time scoreboard of whether the AI bet pays off.
+### MoldBot / OpenClaw Security Warning
+
+- Autonomous AI agents running on Mac Minis are a major security risk
+- MoldBook social network for AI agents: exposed API keys, fake engagement, crypto scams
+- "If you're very technical, sure, play with it. If you're barely technical, it's so dangerous."
+- Security concerns may lead to more model restrictions, which could slow AI progress
 
 ---
 
-## 7) Migrating from ChatGPT to Claude
+## 5. AI Industry Analysis
 
-### The Four-Step Migration Framework
-1. **Extract ChatGPT memories** -- Go to Settings > Personalization > Memory. Export all memories. OR use the "biography prompt" to have ChatGPT write a complete biography of everything it knows about you.
-2. **Import biography into Claude memory** -- Paste into Claude's memory/projects system or Claude MD file.
-3. **Migrate Custom GPTs to Claude Skills** -- Download knowledge files from each GPT. Recreate as Claude Skills or Projects.
-4. **Export all ChatGPT data** -- Settings > Data Export. Good to have as backup, though not all of it needs to be migrated.
+### ChatGPT Market Share Erosion
+
+- Jan 2025: ChatGPT 86.7% → 64.5% market share (of chatbot traffic)
+- Gemini: 5.7% → 21.5% (fastest growing, driven by image models like Nano Banana)
+- Claude: 1.5% → 2% (misleading -- most Claude usage is via terminal/Cursor, not web chatbot)
+- Despite losing share, ChatGPT traffic actually doubled (market itself is growing)
+- Only 5% of ChatGPT users pay for it
+
+### The $20/Month Value Comparison
+
+**Google Gemini ($20):**
+- Gemini 3 Flash and Pro models
+- Notebook LM
+- Anti-Gravity code editor
+- 2TB Google Cloud storage (Drive, Photos, Gmail)
+- Gemini inside Gmail, Sheets, Docs
+- Built-in image generation (Nano Banana)
+
+**OpenAI ChatGPT ($20):**
+- GPT-5.2 thinking model
+- Codex usage
+- Image generation (Gibli moment)
+- Better app/UX than competitors
+- Memory feature (strong lock-in)
+
+**Claude ($20):**
+- Best coding agent (Claude Code)
+- Best for enterprise/developers
+- No image model, no voice model
+- "Anthropic will be profitable much earlier than OpenAI"
+
+### Key Industry Insight: "Anthropic is making the point that niching down works"
+
+- Claude focused exclusively on AGI for coding/agents
+- Half of OpenAI's revenue with much less than half their expenses
+- Enterprise/developer market is where the money is, not normie chatbots
+
+### ChatGPT Ads
+
+- Launched January 2026, self-serve available in US/Canada/Australia/NZ
+- $60 CPM (3x display ads), 0.91% CTR
+- Effective CPC ~$6.59 (comparable to Google Search)
+- "Recommended by ChatGPT" badge = powerful trust signal
+- Ads appear contextually within conversation (not interruptive like display)
+- Best for: considered purchases, B2B, high-ticket items
+- Google remains better for high-intent searches; ChatGPT ads are more "discovery"
+
+### Model Cost Comparison for Automation
+
+- **Gemini 2.5 Flash Light**: cheapest, fastest for high-volume operations. Free tier (500-1000 API calls)
+- **Gemini 2.5 Flash**: good default workhorse for operations (not great for writing)
+- **OpenAI models**: better intelligence-to-cost ratio but significantly slower
+- **Claude Opus**: best quality but most expensive. Use for writing/complex reasoning
+- "If you're running thousands of API calls, 30% slower means hours of difference"
 
 ---
 
-## 8) Digital Product Creation (Vibe Coding)
+## 6. SEO in the AI Era
 
-### The Vibe-Coded Digital Product Framework (Ryan Dozer case study)
-- Built "AI Skills Vault" and "Claude Code Skill Stack" -- digital products selling Claude Code skills.
-- Vibe-coded the entire product with Claude Code using Opus 4.6.
-- Product went live and "started printing money instantly."
-- Sales page, checkout, delivery -- all vibe-coded.
-- **Key insight**: Your expertise IS the product. Package what you already know (skills, workflows, SOPs) into a sellable digital product.
+### Google AI Mode Analysis
 
-### The Brand Style Guide System
-- Create a markdown file with brand colors, typography, brand guidelines, product name, positioning.
-- Create a separate "brand style guide" markdown file for visual identity.
-- Reference both in Claude prompts: "Refer to my brand style guide."
-- Claude Code pulls from these to maintain visual and voice consistency across ALL outputs.
+- AI Mode is fundamentally changing how Google presents results
+- Shopping queries: AI Mode shows product carousels, prices, reviews -- "basically built Google Shopping into every search"
+- Informational queries: comprehensive AI answers with citations
+- Local queries: pulls from Google Business Profiles
+- "Web Guide" feature: Gemini organizes web results into AI-generated sections
+
+### SEO Impact Assessment
+
+- Traditional blue link traffic declining but not dead
+- Being cited in AI answers is the new "ranking #1"
+- Reddit, YouTube, Wikipedia most cited in AI answers
+- Schema markup, structured data more important than ever
+- Site speed and HTML rendering critical for AI retrieval
+
+### The WordPress Exodus
+
+- "Building on WordPress is a mistake in 2026"
+- Can't vibe code on WordPress (database-driven architecture)
+- Plugin ecosystem being commoditized (AI can build alternatives for free)
+- Astro/Cloudflare stack: faster, cheaper, more AI-friendly
+- SEO-friendly by default (raw HTML output)
+- Connect headless CMS for blog content if needed
+
+### Authority Site Model Evolution
+
+- Previous model: build content site → rank in Google → monetize with affiliate/ads
+- Current model: build AI-powered tools → attract traffic Google can't replicate → monetize
+- "Text content value has decreased massively. Tools still have unique value."
+- Interactive tools earn links naturally
+- AI coding skills let anyone build what previously cost $10K+
 
 ---
 
-## Cross-Cutting Principles
+## 7. AI Productivity Skills & Workflows
 
-### The "Give Away Everything Free" Paradox
-- Give away your best knowledge 100% for free. Monetize through products, tools, and community -- NOT by gatekeeping information.
-- "The people who pay you are not paying for information. They are paying for convenience, curation, and accountability."
-- Free education builds trust and audience. Products convert that trust into revenue.
+### Claude Code Skills Ecosystem
 
-### The Authenticity Signal
-- "You can tell the difference between people who are hands-on doing this stuff versus people sharing generic summaries from ChatGPT and Perplexity."
-- Stay sharp by actually using the tools you teach. Live it, don't just report on it.
-- Your audience can detect authenticity. It compounds over time.
+- Skills = text files that give Claude Code specialized capabilities for specific tasks
+- "Skills are where MCP was one year ago" -- the 2026 breakout primitive
+- Combined with MCP servers, creates "mini employees that know the playbook AND have the tools"
+- Skills can be installed, shared, iterated on
+- Low token cost compared to long conversation-based approaches
 
-### The Solo Founder AI Stack
-- Use AI to replace an entire team: support, marketing, content creation, product development, design.
-- "I'm currently still a solo team for Blotato. How do I use AI for support? Marketing? Content? Coding? Design?"
-- The question is not "should I use AI?" but "which parts of my business can AI handle?"
+### Key Skills Mentioned
 
-### The Anti-Perfectionism Principle
-- "You don't need fancy courses, you don't need fancy frameworks."
-- Open TikTok, search your topic, find three viral videos, copy the first 10 seconds. That is the entire system.
-- "Do not be clever."
-- Ship fast. Iterate based on data. The algorithm will tell you what works.
+- Social media manager skill (hooks library, scheduling, platform-specific formatting)
+- SEO topical map builder (generates interactive topical maps from keyword data)
+- N8N workflow builder skill (designs and deploys automations)
+- Website builder skill (Astro framework, responsive design, animations)
+- Content writer skill (multi-agent article system)
+- Remotion video skill (programmatic B-roll, motion graphics, text animations)
+
+### Remotion Video Production
+
+- Claude Code skill for creating video content programmatically
+- Not AI-generated (like Sora) -- rendered code-based animations
+- No gibberish text, clean motion graphics
+- Cost: just Claude Code token usage (no per-video cost)
+- Use cases: B-roll, data visualizations, product demos, social media clips
+- "Currently basic but this is the worst it'll ever be. Everyone on YouTube will use this within months."
+
+### The AI Accelerator Model
+
+- 300+ members, pricing increased at 150-member milestone
+- Mix of: courses, pre-made automations (N8N), prompts, Claude Code skills
+- Focus: real businesses implementing AI (not make-money-online)
+- Weekly mastermind calls for higher-tier members
+- "Determined not to become one of those memberships where nobody tests the stuff and nobody uses it"
+- New courses: vibe coding websites, AI agents, content at scale
+
+---
+
+## 8. Business Model & Monetization
+
+### The Authority Hacker Business Evolution
+
+- Started: authority/niche site building with SEO + affiliate marketing
+- Evolved: AI implementation education and community
+- Revenue: AI Accelerator membership (primary), courses, community
+- Philosophy: "We spent nine months implementing AI in real companies before teaching it"
+
+### AI as SaaS Disruption
+
+- Every micro-SaaS is vulnerable: contact forms, opt-in tools, analytics dashboards
+- "A kid in his dorm can make a $5/month alternative in an afternoon"
+- Open source + MCP = free alternatives to most paid tools
+- "Your AI will shop into a free library of stuff, grab reviewed code, and put it on your website"
+- Plugin/tool ecosystem facing existential commoditization
+
+### Website Building as a Service (New Model)
+
+- Vibe-code client websites on calls in real-time
+- Show changes during the meeting (built Cascade Agency redesign during 30-min call)
+- One-shot website generation with animations, responsive design
+- "You can't deny this is fairly well refined for one shot. 80% there."
+- No designer or developer needed
+- Sell website packages where AI does 80% of the build
+
+---
+
+## 9. Testing & Experimentation Methodology
+
+### The Authority Hacker Testing Approach
+
+- Always test with real data before teaching
+- "We're not building AI tools that we haven't tested ourselves"
+- Share failures openly (rebuilding Brand Snap 3 times, social media automation failures)
+- Iterative skill improvement: weekly performance reviews update the playbook
+- A/B test social media approaches (fully automated vs. human-in-loop)
+
+### Model Selection Testing
+
+- Test same task across multiple models (Claude, Gemini, GPT)
+- Compare on: quality, speed, cost, and reliability
+- "For writing, OpenAI is slow but quality is good. For operations, Gemini Flash is the workhorse."
+- Don't commit to one model -- market shifts fast
+
+### Security Testing Mindset
+
+- Assume public-facing tools WILL be attacked
+- Rate limiting, bot detection from day one
+- "This was literally the worst project to start with" (public API tool with no authentication)
+- Internal tools are dramatically simpler to secure
+
+---
+
+## 10. Key Authority Hacker Terminology
+
+| Term | Definition |
+|------|-----------|
+| **Vibe Coding** | Building software through natural language conversation with AI coding agents |
+| **PRD** | Product Requirements Document -- the planning phase before any coding begins |
+| **Skills** | Claude Code text files that give specialized capabilities for repeatable tasks |
+| **MCP** | Model Context Protocol -- connects AI agents to external tools and services |
+| **N8N** | Open-source automation platform for building workflows |
+| **Astro** | Web framework that outputs raw HTML, SEO-friendly, used for Authority Hacker site |
+| **GumLoop** | Workflow automation platform with MCP nodes for natural language API calls |
+| **Remotion** | Programmatic video rendering framework (code-based, not AI-generated) |
+| **Subflows** | Modular reusable automation components in GumLoop |
+| **AI Accelerator** | Authority Hacker's membership community for AI implementation in real businesses |
+| **Citable** | Cloudflare's new CMS built on Astro (WordPress alternative) |
+| **Brand Snap** | Authority Hacker's vibe-coded domain brainstorming tool |
+| **Loop Mode** | GumLoop feature that automatically processes each item in a list |
+| **Smooshing** | Converting a list into text (join list items) for AI processing |
+| **Scheduled Tasks** | Claude Code's built-in cron-like feature for recurring automated workflows |
+
+---
+
+## 11. Signature Quotes
+
+- "Tools are the new content."
+- "If you don't plan it, AI is going to build it wrong most of the time."
+- "Building on WordPress is a mistake in 2026."
+- "English is now the number one programming language in the world."
+- "If you try to go all AI on social media, it goes down the toilet."
+- "Focus on emotional response. Get people to react. Nobody cares for information."
+- "Skills are where MCP was one year ago."
+- "The people who implement this stuff gain so much time."
+- "Anthropic is making the point that niching down works."
+- "The PR of like releasing features is more important than the features working."
+- "Most of this AI hype is fake. 99% of the time it's someone behind their Mac Mini prompting the bot to post something outrageous for social media clout."
+- "We were determined not to become one of those memberships where nobody tests the stuff."
