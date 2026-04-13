@@ -1,0 +1,7 @@
+*.log
+urls/
+xiaohongshu/*.png
+populate_*.sh
+populate_remaining.sh
+populate_resume.sh
+DESIGN.md

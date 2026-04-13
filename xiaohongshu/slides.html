@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万能 YouTube 专家蒸馏术</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    /* Linear-inspired dark palette */
+    --bg-deep: #08090a;
+    --bg-panel: #0f1011;
+    --bg-surface: #191a1b;
+    --bg-hover: #28282c;
+
+    --text-primary: #f7f8f8;
+    --text-secondary: #d0d6e0;
+    --text-tertiary: #8a8f98;
+    --text-muted: #62666d;
+
+    --accent: #5e6ad2;
+    --accent-bright: #7170ff;
+    --accent-hover: #828fff;
+
+    --green: #27a644;
+    --red: #e5484d;
+
+    --border-subtle: rgba(255,255,255,0.05);
+    --border-standard: rgba(255,255,255,0.08);
+    --border-visible: #23252a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #000;
+    font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+    font-feature-settings: "cv01", "ss03";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    padding: 48px 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1440px;
+    background: var(--bg-deep);
+    padding: 88px 80px 72px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ============================================================ */
+  .num {
+    position: absolute;
+    top: 36px;
+    right: 44px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  .label {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--accent-bright);
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--text-primary);
+    letter-spacing: -1.4px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1.08;
+    color: var(--text-primary);
+    letter-spacing: -1.1px;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+
+  .body {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    letter-spacing: -0.2px;
+  }
+
+  .accent { color: var(--accent-bright); }
+  .dim { color: var(--text-tertiary); }
+  .bright { color: var(--text-primary); }
+
+  .spacer { flex: 1; }
+
+  .rule {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    margin: 28px 0;
+    opacity: 0.6;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 36px;
+    left: 80px;
+    right: 80px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+  }
+
+  /* ============================================================
+     Code
+     ============================================================ */
+  .code {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-standard);
+    border-radius: 10px;
+    padding: 28px 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    line-height: 2;
+    color: var(--text-secondary);
+    margin: 12px 0;
+  }
+
+  .code .c { color: var(--text-muted); }
+  .code .k { color: var(--accent-bright); }
+  .code .s { color: var(--green); }
+  .code .f { color: var(--accent-hover); }
+
+  /* ============================================================
+     Cards
+     ============================================================ */
+  .card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 24px 28px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0;
+  }
+
+  /* ============================================================
+     COVER
+     ============================================================ */
+  .cover {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--bg-deep);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(94,106,210,0.08) 0%, transparent 70%);
+  }
+
+  .cover h1 {
+    font-size: 72px;
+    font-weight: 600;
+    letter-spacing: -2px;
+    line-height: 1.0;
+  }
+
+  .cover .sub {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--text-tertiary);
+    line-height: 1.7;
+    margin-top: 8px;
+  }
+
+  .cover .rule { margin: 28px auto; }
+
+  /* ============================================================
+     Compare
+     ============================================================ */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 16px 0;
+  }
+
+  .compare-col {
+    border-radius: 10px;
+    padding: 32px;
+    border: 1px solid;
+  }
+
+  .compare-col.bad {
+    background: rgba(229,72,77,0.04);
+    border-color: rgba(229,72,77,0.15);
+  }
+
+  .compare-col.good {
+    background: rgba(39,166,68,0.04);
+    border-color: rgba(39,166,68,0.15);
+  }
+
+  .compare-col h3 { font-size: 20px; margin-bottom: 16px; }
+
+  .compare-col .item {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text-tertiary);
+    padding: 6px 0;
+    line-height: 1.5;
+  }
+
+  /* ============================================================
+     Expert grid
+     ============================================================ */
+  .expert-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: -0.2px;
+  }
+
+  .expert-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* ============================================================
+     Pipeline
+     ============================================================ */
+  .step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    margin: 16px 0;
+  }
+
+  .step-n {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .step-body h3 { font-size: 22px; margin-bottom: 4px; }
+  .step-body p { font-size: 17px; color: var(--text-tertiary); line-height: 1.5; font-weight: 300; }
+
+  .connector {
+    width: 1px;
+    height: 12px;
+    background: var(--border-visible);
+    margin-left: 21px;
+  }
+
+  /* ============================================================
+     Layer boxes
+     ============================================================ */
+  .layer {
+    border-radius: 10px;
+    padding: 32px;
+    margin: 8px 0;
+    border: 1px solid;
+  }
+
+  .layer.brain {
+    background: rgba(94,106,210,0.05);
+    border-color: rgba(94,106,210,0.2);
+  }
+
+  .layer.soul {
+    background: rgba(113,112,255,0.05);
+    border-color: rgba(113,112,255,0.2);
+  }
+
+  .layer h3 { font-size: 22px; margin-bottom: 6px; }
+  .layer p { font-size: 18px; color: var(--text-tertiary); line-height: 1.6; font-weight: 300; }
+
+  .merge-sym {
+    text-align: center;
+    font-size: 20px;
+    color: var(--text-muted);
+    padding: 4px 0;
+    font-weight: 300;
+  }
+
+  .result {
+    background: var(--accent);
+    border-radius: 10px;
+    padding: 28px;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .result h3 { color: white; font-size: 20px; margin-bottom: 4px; }
+  .result p { color: rgba(255,255,255,0.7); font-size: 18px; font-weight: 300; }
+
+  /* ============================================================
+     Protocol
+     ============================================================ */
+  .proto {
+    display: flex;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .proto:last-of-type { border-bottom: none; }
+
+  .proto-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-bright);
+    width: 120px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .proto-text {
+    font-size: 19px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     Tools
+     ============================================================ */
+  .tool {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .tool:last-of-type { border-bottom: none; }
+
+  .tool-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-primary);
+    width: 220px;
+    flex-shrink: 0;
+  }
+
+  .tool-use {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--text-tertiary);
+  }
+
+  .cta {
+    background: var(--bg-panel);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 36px;
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  .cta h3 { color: var(--accent-bright); font-size: 22px; margin-bottom: 6px; }
+  .cta p { color: var(--text-tertiary); font-size: 18px; font-weight: 300; }
+  .cta .repo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    color: var(--accent-hover);
+    margin-top: 12px;
+  }
+
+  /* Callout */
+  .callout {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-standard);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 12px 0;
+  }
+
+  .callout p {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .callout-warn {
+    background: rgba(229,72,77,0.05);
+    border: 1px solid rgba(229,72,77,0.15);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 12px 0;
+  }
+
+  .callout-warn p {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--red);
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== 1 COVER ========== -->
+<div class="slide cover">
+  <span class="num">1 / 10</span>
+  <div class="label">AI 蒸馏术</div>
+  <h1>3 分钟学会<br>全网最强蒸馏教程</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    一个 Prompt 蒸馏任何 YouTube 大神<br>
+    方法论全公开 · 开源 · 可复刻
+  </div>
+  <div class="footer">
+    <span>30x Growth Marketing Panel</span>
+    <span>@norahe0304</span>
+  </div>
+</div>
+
+<!-- ========== 2 WHY ========== -->
+<div class="slide">
+  <span class="num">2 / 10</span>
+  <div class="label">Why Distill</div>
+  <h2>直接问 AI = 模仿秀</h2>
+  <div class="rule"></div>
+
+  <div class="compare">
+    <div class="compare-col bad">
+      <h3 style="color:var(--red);">ChatGPT "扮演" Hormozi</h3>
+      <div class="item">框架名说错</div>
+      <div class="item">数字是编的</div>
+      <div class="item">语气是装的</div>
+      <div class="item">说"这取决于你的情况"</div>
+      <div class="item" style="color:var(--text-muted); margin-top:20px; font-size:15px;">来源：训练数据的平均值</div>
+    </div>
+    <div class="compare-col good">
+      <h3 style="color:var(--green);">蒸馏后的 Hormozi</h3>
+      <div class="item">精确的 Value Equation</div>
+      <div class="item">真实的 Close Rate 数据</div>
+      <div class="item">他自己的原话和案例</div>
+      <div class="item">直接甩数学给你看</div>
+      <div class="item" style="color:var(--text-muted); margin-top:20px; font-size:15px;">来源：4000 个视频原始语料</div>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+  <p class="body" style="text-align:center;">蒸馏 = 让 AI <span class="bright">严格基于这个人说过的话</span>来回答</p>
+
+  <div class="footer">
+    <span>30x Growth Marketing Panel</span>
+    <span>@norahe0304</span>
+  </div>
+</div>
+
+<!-- ========== 3 EXPERTS ========== -->
+<div class="slide">
+  <span class="num">3 / 10</span>
+  <div class="label">The Panel</div>
+  <h2>11 个专家</h2>
+  <p class="body" style="margin-bottom:20px;">每个专家 = NotebookLM 笔记本 + Persona Protocol</p>
+
+  <div class="card-grid">
+    <div class="card"><div class="expert-name">Alex Hormozi</div><div class="expert-desc">定价 · Offer · 规模化</div></div>
+    <div class="card"><div class="expert-name">Greg Isenberg</div><div class="expert-desc">AI创业 · 社区 · Vibe Marketing</div></div>
+    <div class="card"><div class="expert-name">Neil Patel</div><div class="expert-desc">SEO · 付费广告 · CRO</div></div>
+    <div class="card"><div class="expert-name">Nathan Gotch</div><div class="expert-desc">AI SEO · 全平台搜索优化</div></div>
+    <div class="card"><div class="expert-name">Authority Hacker</div><div class="expert-desc">AI内容规模化 · 联盟营销</div></div>
+    <div class="card"><div class="expert-name">Sabrina Ramonov</div><div class="expert-desc">AI Agent · 自动化工作流</div></div>
+    <div class="card"><div class="expert-name">Liam Ottley</div><div class="expert-desc">AI自动化代理 · AAA模型</div></div>
+    <div class="card"><div class="expert-name">Julia McCoy</div><div class="expert-desc">AI写作 · 内容策略</div></div>
+    <div class="card"><div class="expert-name">Ryan Doser</div><div class="expert-desc">AI工具评测 · Claude Code</div></div>
+    <div class="card"><div class="expert-name">Growth Tribe</div><div class="expert-desc">增长黑客 · AARRR</div></div>
+  </div>
+  <div class="card" style="margin-top:12px;"><div class="expert-name">Dan Koe</div><div class="expert-desc">一人公司 · 写作杠杆 · "You Are The Niche"</div></div>
+
+  <div class="footer">
+    <span>30x Growth Marketing Panel</span>
+    <span>@norahe0304</span>
+  </div>
+</div>
+
+<!-- ========== 4 PIPELINE ========== -->
+<div class="slide">
+  <span class="num">4 / 10</span>
+  <div class="label">Architecture</div>
+  <h2>4 层 Pipeline</h2>
+  <div class="rule"></div>
+
+  <div class="step"><div class="step-n">1</div><div class="step-body"><h3>数据采集</h3><p>yt-dlp 抓 Dan Koe 的 YouTube 频道<br>→ 300 个视频 URL，秒级完成，不下载视频</p></div></div>
+  <div class="connector"></div>
+  <div class="step"><div class="step-n">2</div><div class="step-body"><h3>NotebookLM 建库</h3><p>Chrome 插件一键导入 or notebooklm-py 批量灌入<br>→ NotebookLM 自动转写全部视频并建立索引</p></div></div>
+  <div class="connector"></div>
+  <div class="step"><div class="step-n">3</div><div class="step-body"><h3>Persona Protocol</h3><p>用 notebooklm ask 查他的框架、口头禅、反对什么<br>→ 写出 Role / Thinking / Tone / Anti / Retrieval</p></div></div>
+  <div class="connector"></div>
+  <div class="step"><div class="step-n">4</div><div class="step-body"><h3>双层融合</h3><p>提问时先 notebooklm ask 搜原始语料<br>→ 再读 Persona 加载人格 → 融合输出</p></div></div>
+
+  <div class="spacer"></div>
+  <div class="callout"><p>不总结、不压缩。<span class="bright">直接检索原始语料，零信息损耗。</span></p></div>
+
+  <div class="footer">
+    <span>30x Growth Marketing Panel</span>
+    <span>@norahe0304</span>
+  </div>
+</div>
+
+<!-- ========== 5 DUAL LAYER ========== -->
+<div class="slide">
+  <span class="num">5 / 10</span>
+  <div class="label">Core Design</div>
+  <h2>大脑 + 灵魂</h2>
+  <div class="rule"></div>
+
+  <div class="layer brain">
+    <h3><span class="accent">大脑</span> — NotebookLM</h3>
+    <p>4000+ 个视频的原始语料<br>用 notebooklm ask 实时搜索<br>返回具体引用、案例、数据</p>
+    <p style="color:var(--accent-bright); font-weight:500; margin-top:10px;">→ 提供内容：说什么</p>
+  </div>
+
+  <div class="merge-sym">+</div>
+
+  <div class="layer soul">
+    <h3><span class="accent">灵魂</span> — Persona Protocol</h3>
+    <p>框架体系 · 专业术语 · 说话风格<br>签名短语 · 反模式</p>
+    <p style="color:var(--accent-bright); font-weight:500; margin-top:10px;">→ 提供方式：怎么说</p>
+  </div>
+
+  <div class="merge-sym">↓</div>
+
+  <div class="result">
+    <h3>融合输出</h3>
+    <p>用 Hormozi 的腔调，说 NotebookLM 检索到的具体案例</p>
+  </div>
+
+  <div class="footer">
+    <span>30x Growth Marketing Panel</span>
+    <span>@norahe0304</span>
+  </div>
+</div>
+
+<!-- ========== 6 STEP 1 ========== -->
+<div class="slide">
+  <span class="num">6 / 10</span>
+  <div class="label">Step 1 · 灌数据</div>
+  <h2>建专家的大脑</h2>
+  <div class="rule"></div>
+
+  <h3 style="margin-top:8px;">路径 A · Chrome 插件</h3>
+  <div class="callout">
+    <p>
+      Chrome 商店搜 <span class="bright">"YouTube to NotebookLM"</span> 安装<br>
+      打开专家的频道 → 点插件 → 批量导入整个频道<br>
+      <span class="dim" style="font-size:16px;">推荐新手，零代码</span>
+    </p>
+  </div>
+
+  <h3 style="margin-top:24px;">路径 B · 命令行批量</h3>
+  <div class="code">
+    <span class="c"># 抓取 URL 列表</span><br>
+    <span class="k">yt-dlp</span> <span class="s">"https://youtube.com/@AlexHormozi/videos"</span> \<br>
+    &nbsp;&nbsp;<span class="f">--flat-playlist --print</span> url <span class="f">--playlist-end</span> 300<br><br>
+    <span class="c"># 批量灌入 NotebookLM</span><br>
+    <span class="k">while read</span> url; <span class="k">do</span><br>
+    &nbsp;&nbsp;notebooklm source add <span class="f">-n</span> {id} <span class="s">"$url"</span><br>
+    <span class="k">done</span> < urls.txt
+  </div>
+  <p class="dim" style="font-size:16px; margin-top:8px;">适合 10+ 个专家的批量自动化</p>
+
+  <div class="footer">
+    <span>30x Growth Marketing Panel</span>
+    <span>@norahe0304</span>
+  </div>
+</div>
+
+<!-- ========== 7 STEP 2 ========== -->
+<div class="slide">
+  <span class="num">7 / 10</span>
+  <div class="label">Step 2 · 装检索工具</div>
+  <h2>notebooklm-py</h2>
+  <div class="rule"></div>
+
+  <p class="body" style="margin-bottom:20px;">灌数据可以用插件，但<span class="bright">检索必须用 notebooklm-py</span></p>
+
+  <div class="code">
+    <span class="c"># 安装</span><br>
+    <span class="k">pip install</span> <span class="s">"notebooklm-py[browser]"</span><br>
+    <span class="k">playwright install</span> chromium<br><br>
+    <span class="c"># 登录（弹浏览器，只需一次）</span><br>
+    <span class="k">notebooklm</span> login<br><br>
+    <span class="c"># 测试检索</span><br>
+    <span class="k">notebooklm ask</span> <span class="f">-n</span> {notebook_id} \<br>
+    &nbsp;&nbsp;<span class="s">"What is the Value Equation?"</span>
+  </div>
+
+  <div class="callout" style="margin-top:20px;">
+    <p><span class="bright">github.com/teng-lin/notebooklm-py</span><br>支持 Python API 和 CLI 两种方式</p>
+  </div>
+
+  <div class="footer">
+    <span>30x Growth Marketing Panel</span>
+    <span>@norahe0304</span>
+  </div>
+</div>
+
+<!-- ========== 8 STEP 3 ========== -->
+<div class="slide">
+  <span class="num">8 / 10</span>
+  <div class="label">Step 3 · Core Innovation</div>
+  <h2>Persona Protocol</h2>
+  <p class="body" style="margin-bottom:12px;">不是 prompt，是认知操作系统</p>
+
+  <div class="proto">
+    <div class="proto-label">Role</div>
+    <div class="proto-text"><span class="bright">他是谁？</span> "Hormozi 的数字分身，冷血商业操盘手。"</div>
+  </div>
+
+  <div class="proto">
+    <div class="proto-label">Thinking</div>
+    <div class="proto-text"><span class="bright">遇到问题第一反应？</span> 定价→Value Equation，增长→"More, Better, New"</div>
+  </div>
+
+  <div class="proto">
+    <div class="proto-label">Tone</div>
+    <div class="proto-text"><span class="bright">怎么说话？</span> "Just do the math." / "Volume negates luck."</div>
+  </div>
+
+  <div class="proto">
+    <div class="proto-label">Anti</div>
+    <div class="proto-text"><span class="bright">绝不会说什么？</span> 绝不会说"先做好产品再想定价"——永远 Offer 先行</div>
+  </div>
+
+  <div class="proto">
+    <div class="proto-label">Retrieval</div>
+    <div class="proto-text"><span class="bright">搜什么？</span> 优先搜定价框架、成交率、LTV/CAC</div>
+  </div>
+
+  <div class="spacer"></div>
+  <div class="callout"><p>Anti-Pattern 要足够具体 —— <span class="bright">只有这个专家才会拒绝的事</span></p></div>
+
+  <div class="footer">
+    <span>30x Growth Marketing Panel</span>
+    <span>@norahe0304</span>
+  </div>
+</div>
+
+<!-- ========== 9 STEP 4 ========== -->
+<div class="slide">
+  <span class="num">9 / 10</span>
+  <div class="label">Step 4 · 双层融合</div>
+  <h2>大脑 + 灵魂 = 回答</h2>
+  <div class="rule"></div>
+
+  <p class="body" style="margin-bottom:16px;">每次回答走两步：先搜大脑，再加灵魂</p>
+
+  <div class="code">
+    <span class="c"># A. 搜大脑</span><br>
+    <span class="k">notebooklm ask</span> <span class="f">-n</span> hormozi \<br>
+    &nbsp;&nbsp;<span class="s">"How does Hormozi price SaaS?"</span><br><br>
+    <span class="c"># → 返回他视频里说过的具体案例和数字</span>
+  </div>
+
+  <div class="code">
+    <span class="c"># B. 加灵魂</span><br>
+    <span class="k">Read</span> <span class="s">hormozi_kb.md</span><br><br>
+    <span class="c"># → 加载说话风格、框架名、反模式</span>
+  </div>
+
+  <div class="result" style="margin-top:16px;">
+    <h3>大脑提供内容 + 灵魂提供表达</h3>
+    <p>= 不是模仿秀，是真正的数字分身</p>
+  </div>
+
+  <div class="spacer"></div>
+  <div class="callout-warn"><p>反幻觉：NotebookLM 检索不到 → 标注 ⚠️ 推演。绝不编造专家没说过的话。</p></div>
+
+  <div class="footer">
+    <span>30x Growth Marketing Panel</span>
+    <span>@norahe0304</span>
+  </div>
+</div>
+
+<!-- ========== 10 TOOLS ========== -->
+<div class="slide">
+  <span class="num">10 / 10</span>
+  <div class="label">Toolkit</div>
+  <h2>蒸馏任何人</h2>
+  <div class="rule"></div>
+
+  <div class="tool"><span class="tool-name">yt-dlp</span><span class="tool-use">YouTube URL 批量抓取</span></div>
+  <div class="tool"><span class="tool-name">notebooklm-py</span><span class="tool-use">批量灌入 + 编程式检索</span></div>
+  <div class="tool"><span class="tool-name">NotebookLM Pro</span><span class="tool-use">原始语料存储 300源/笔记本</span></div>
+  <div class="tool"><span class="tool-name">Claude Code Skills</span><span class="tool-use">Persona Protocol + 双层封装</span></div>
+
+  <div class="cta">
+    <h3>全部开源</h3>
+    <p>掌握这套工作流，你可以蒸馏任何你崇拜的人</p>
+    <div class="repo">github.com/norahe0304-art/30x-growth-marketing-panel</div>
+  </div>
+
+  <div class="footer">
+    <span>30x Growth Marketing Panel</span>
+    <span>@norahe0304</span>
+  </div>
+</div>
+
+<!-- ========== BONUS ========== -->
+<div class="slide">
+  <span class="num">Bonus</span>
+  <div class="label">One Prompt to Distill Anyone</div>
+  <h2>复制 Prompt<br>蒸馏任何人</h2>
+  <div class="rule"></div>
+
+  <p class="body" style="margin-bottom:16px;">粘贴到 Claude Code，改三个变量：</p>
+
+  <div class="code" style="font-size:14.5px; line-height:1.9;">
+    <span class="c">Distill</span> <span class="s">[NAME]</span> <span class="c">into a digital twin.</span><br>
+    <span class="c">YouTube:</span> <span class="s">[CHANNEL URL]</span><br>
+    <span class="c">Domain:</span> <span class="s">[WHAT THEY'RE KNOWN FOR]</span><br><br>
+    <span class="k">Setup:</span> <span class="c">Ensure yt-dlp and notebooklm-py</span><br>
+    <span class="c">&nbsp;&nbsp;are installed. Run notebooklm login.</span><br><br>
+    <span class="k">Step 1:</span> <span class="c">yt-dlp [URL]/videos --flat-playlist</span><br>
+    <span class="c">&nbsp;&nbsp;--print url --playlist-end 300 > urls.txt</span><br><br>
+    <span class="k">Step 2:</span> <span class="c">notebooklm create "[NAME]"</span><br>
+    <span class="c">&nbsp;&nbsp;Loop urls.txt: source add -n {id} "$url"</span><br><br>
+    <span class="k">Step 3:</span> <span class="c">notebooklm ask -n {id}:</span><br>
+    <span class="c">&nbsp;&nbsp;"core frameworks?" / "catchphrases?"</span><br>
+    <span class="c">&nbsp;&nbsp;"what do they disagree with?"</span><br><br>
+    <span class="k">Step 4:</span> <span class="c">Write {name}_kb.md:</span><br>
+    <span class="c">&nbsp;&nbsp;</span><span class="f">Role</span> <span class="c">· </span><span class="f">Thinking</span> <span class="c">· </span><span class="f">Tone</span> <span class="c">· </span><span class="f">Anti</span> <span class="c">· </span><span class="f">Retrieval</span><br><br>
+    <span class="k">Step 5:</span> <span class="c">To answer any question:</span><br>
+    <span class="c">&nbsp;&nbsp;A. notebooklm ask -n {id} "question"</span><br>
+    <span class="c">&nbsp;&nbsp;B. Read {name}_kb.md for persona</span><br>
+    <span class="c">&nbsp;&nbsp;C. Fuse: persona voice + retrieval</span><br>
+    <span class="c">&nbsp;&nbsp;D. No match → mark ⚠️ extrapolation</span>
+  </div>
+
+  <div class="callout" style="margin-top:16px;">
+    <p>完整 prompt 在仓库 <span class="bright">distill_anyone.md</span></p>
+  </div>
+
+  <div class="footer">
+    <span>30x Growth Marketing Panel</span>
+    <span>@norahe0304</span>
+  </div>
+</div>
+
+</body>
+</html>

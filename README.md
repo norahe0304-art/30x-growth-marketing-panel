@@ -12,6 +12,29 @@ npx skills add norahe0304-art/30x-growth-marketing-panel
 
 Works with Claude Code, Cursor, Codex, and 45+ AI coding agents.
 
+## Distill Anyone
+
+Want to distill your own expert? Copy the prompt from [`distill_anyone.md`](distill_anyone.md) into Claude Code. Change 3 variables. Full pipeline runs automatically.
+
+## Architecture: Dual-Layer
+
+```
+User question → Semantic routing → Match expert(s)
+
+Layer 1 — Brain (NotebookLM)
+  notebooklm ask → retrieves what the expert actually said
+  4,000+ YouTube videos indexed, zero information loss
+
+Layer 2 — Soul (Persona Protocol)
+  Read expert_kb.md → loads personality, frameworks, anti-patterns
+
+Fused output = expert's voice + retrieved content
+```
+
+Each expert has:
+- A **NotebookLM notebook** with 200-300 YouTube videos (raw retrieval)
+- A **Persona Protocol** with 5 modules: Role, Thinking Models, Tone, Anti-Patterns, Retrieval Logic
+
 ## The Panel
 
 | Expert | Domain |
@@ -30,69 +53,29 @@ Works with Claude Code, Cursor, Codex, and 45+ AI coding agents.
 
 ## How It Works
 
-```
-Your question --> Semantic routing --> Read expert KB(s) --> Expert-voice response
-```
-
 - **Single expert** for focused questions ("How should I price my SaaS?")
 - **Multi-expert roundtable** for broad strategy ("How do I go to market?")
 - **Named expert** for specific requests ("Ask Hormozi about my offer")
 
-## Examples
+## Anti-Hallucination Protocol
 
-**You:** How should I price my AI automation service?
+1. **Retrieve first** — must search NotebookLM before generating any response
+2. **Dual verification** — retrieval + KB cross-reference
+3. **Explicit marking** — if neither layer covers it, extrapolate from core principles with ⚠️
+4. **Never fabricate** — if you can't say something the expert would say, don't say it
 
-**[HORMOZI]:** Use the Value Equation. If your AI saves 20h/week at $50/hr = $52K/year savings. Charge $12-15K/year -- 3-4x ROI for them, 80%+ margins for you. Closing above 60%? You have a 3-4x price increase sitting there.
+## Tools Used
 
----
-
-**You:** 2026 SEO strategy?
-
-**[PATEL]:** Citation Economy. 59% zero-click searches. Own complex multi-layer topics AI can't synthesize without you.
-
-**[GOTCH]:** Search Everywhere Optimization -- Google, YouTube, Instagram, TikTok. Not just one platform.
-
-**[AUTHHACKER]:** YouTube-to-Blog Pipeline. Record video, auto-generate SEO blog post, target both traditional + AI search.
+| Tool | Purpose |
+|------|---------|
+| yt-dlp | YouTube URL batch collection |
+| notebooklm-py | Programmatic NotebookLM access (bulk add + retrieval) |
+| NotebookLM Pro | Raw transcript indexing (300 sources/notebook) |
+| Claude Code Skills | Persona Protocol + dual-layer fusion |
 
 ## Language
 
-Responds in your language automatically. Ask in English, get English. Ask in Chinese, get Chinese. Expert framework names stay in English (Value Equation, AARRR, etc.).
-
-## Architecture
-
-```
-4,000+ YouTube videos
-        |
-    yt-dlp transcript download
-        |
-    VTT cleaning (sed/awk dedup)
-        |
-    Claude Opus parallel distillation (11 agents)
-        |
-    5,900+ lines of structured Markdown KBs
-        |
-    Semantic intent routing --> Expert-voice responses
-```
-
-- **Knowledge layer:** 11 Markdown files, 400-700 lines each
-- **Routing:** Intent-based semantic matching (not keyword matching)
-- **Update pipeline:** `update_knowledge.sh` for incremental transcript downloads
-- **Zero dependencies:** Pure Markdown, no API keys, no external services
-
-## Update Knowledge Base
-
-```bash
-# Download new transcripts from all channels
-./update_knowledge.sh
-
-# Download from one channel only
-./update_knowledge.sh hormozi
-
-# Then re-distill flagged experts
-claude "Read the updated transcripts and re-distill the flagged expert KBs"
-```
-
-Requires [yt-dlp](https://github.com/yt-dlp/yt-dlp) (`brew install yt-dlp`).
+Responds in your language automatically. Expert framework names stay in English.
 
 ## License
 
